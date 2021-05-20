@@ -1,12 +1,12 @@
 <template>
-  <v-app id="inspire">
+   <v-app id="inspire"> 
     <v-content >
       <v-container class="fill-height " fluid >
         <v-row  justify="center" >
           <v-col cols="12" sm="6" md="6" >
             <v-card class="elevation-12 "  justify="center">
-              <v-window v-model="step" >
-                <v-window-item :value="1">
+              <v-window >
+                <v-window-item >
                   <v-row  justify="center">
                     <v-col cols="12" md="8" >
                       <v-card-text class="mt-12">
@@ -47,16 +47,12 @@
       </v-container>
     </v-content>
   </v-app  >
+
 </template>
 
 <script>
 export default {
-  data: () => ({
-    step: 1
-  }),
-  props: {
-    source: String
-  }
+
 };
 </script>
 <style scoped>
