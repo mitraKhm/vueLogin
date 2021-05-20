@@ -1,6 +1,6 @@
 import Home from "../../views/Home.vue"
 import Profile from '../../views/Profile.vue'
-
+import About from "../../views/About.vue"
 
 export const Routes = [
     {
@@ -11,7 +11,12 @@ export const Routes = [
     {
         path: '/profile',
         name: 'profile',
-
         component: Profile
-    }
+    },
+    {
+        path: '/about',
+        name: 'about',
+        component: About
+    },
+    
 ]
