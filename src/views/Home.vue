@@ -78,6 +78,7 @@
                           dark
                           >ورود</v-btn
                         >
+                   
                       </div>
                     </v-col>
                   </v-row>
@@ -102,10 +103,16 @@ export default {
   data() {
     return {
       phone: "09388131193",
-      password: "49003050",
+      password: "4900443050",
     };
   },
-  computed: {},
+  computed: {
+    data(){
+    return this.$store.state.Data
+    }
+
+  },
+  
   methods: {
     sendData() {
       const register = {
@@ -114,6 +121,7 @@ export default {
       };
       this.$store.dispatch("sendData", register);
     },
+  
   },
   validations: {
     phone: {
@@ -166,7 +174,8 @@ export default {
       },
     },
   },
-};
+}
+
 </script>
 <style scoped>
 .found {

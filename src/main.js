@@ -6,16 +6,18 @@ import vuetify from './plugins/vuetify';
 import VueRouter from 'vue-router';
 import {store } from './store/Store.js';
 import Vuelidate from 'vuelidate'
+import VueCookie from 'vue-cookie';
 
 
 Vue.config.productionTip = false;
 
 Vue.use(VueResource);
 Vue.use(Vuelidate);
+Vue.use(VueCookie);
 
 
 Vue.use(VueRouter);
-const router = new VueRouter({
+export const router = new VueRouter({
   routes : Routes ,
 });
 
