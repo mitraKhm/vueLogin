@@ -62,7 +62,7 @@
                       </v-card-text>
                       <div class="text-center mt-n5">
                         <v-btn rounded color="teal accent-3" dark
-                          >ویرایش</v-btn
+                          >ویرایش</v-btn 
                         >
                          <v-btn
         class="ma-2"
