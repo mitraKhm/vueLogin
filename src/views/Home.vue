@@ -5,24 +5,24 @@
         <v-row justify="center">
           <v-col cols="12" sm="6" md="6">
             <v-card class="elevation-12 " justify="center">
+              <v-card-title
+                class="headline font-weight-regular blue-grey white--text"
+              >
+                وارد شوید
+              </v-card-title>
               <v-window>
                 <v-window-item>
                   <v-row justify="center">
                     <v-col cols="12" md="8">
                       <v-card-text class="mt-12">
-                        <h1
-                          class="text-center display-2 teal--text text--accent-3"
-                        >
-                          وارد شوید
-                        </h1>
                         <v-form>
                           <v-text-field
                             outlined
+                            prepend-icon="mdi-phone"
                             label="شماره همراه"
                             name="phonNumber"
-                            prepend-icon="email"
                             type="number"
-                            color="teal accent-3"
+                            color="blue-grey "
                             v-model="phone"
                             @input="$v.phone.$touch()"
                           />
@@ -42,18 +42,18 @@
                           </v-alert> -->
 
                           <v-text-field
+                            prepend-icon="mdi-lock"
                             outlined
                             id="password"
                             label="کد ملی"
                             name="password"
-                            prepend-icon="lock"
                             type="password"
-                            color="teal accent-3"
+                            color="blue-grey "
                             v-model="password"
-                           @input="$v.password.$touch()"
+                            @input="$v.password.$touch()"
                             dense
                           />
-                           <v-alert
+                          <v-alert
                             dense
                             outlined
                             type="error"
@@ -71,14 +71,12 @@
                       </v-card-text>
                       <div class="text-center mt-3">
                         <v-btn
-                        
+                          class="ma-2"
                           @click.prevent="sendData()"
                           rounded
-                          color="teal accent-3"
-                          dark
+                          color="success"
                           >ورود</v-btn
                         >
-                   
                       </div>
                     </v-col>
                   </v-row>
@@ -107,12 +105,11 @@ export default {
     };
   },
   computed: {
-    data(){
-    return this.$store.state.Data
-    }
-
+    data() {
+      return this.$store.state.Data;
+    },
   },
-  
+
   methods: {
     sendData() {
       const register = {
@@ -121,7 +118,6 @@ export default {
       };
       this.$store.dispatch("sendData", register);
     },
-  
   },
   validations: {
     phone: {
@@ -129,31 +125,34 @@ export default {
       numeric,
       maxLength: maxLength(11),
       minLength: minLength(11),
-  
-    isValid:(val) =>{
-      return true
-    }
+
+      isValid: (val) => {
+        return true;
+      },
     },
     password: {
       required,
       numeric,
       isValid: (value) => {
         if (value === "") return true;
-         if (value.length == 10) {
-        if (value == '1111111111' ||
-            value == '0000000000' ||
-            value == '2222222222' ||
-            value == '3333333333' ||
-            value == '4444444444' ||
-            value == '5555555555' ||
-            value == '6666666666' ||
-            value == '7777777777' ||
-            value == '8888888888' ||
-            value == '9999999999') {
+        if (value.length == 10) {
+          if (
+            value == "1111111111" ||
+            value == "0000000000" ||
+            value == "2222222222" ||
+            value == "3333333333" ||
+            value == "4444444444" ||
+            value == "5555555555" ||
+            value == "6666666666" ||
+            value == "7777777777" ||
+            value == "8888888888" ||
+            value == "9999999999"
+          ) {
             return false;
-        }
-        var c = parseInt(value.charAt(9));
-       var n = parseInt(value.charAt(0)) * 10 +
+          }
+          var c = parseInt(value.charAt(9));
+          var n =
+            parseInt(value.charAt(0)) * 10 +
             parseInt(value.charAt(1)) * 9 +
             parseInt(value.charAt(2)) * 8 +
             parseInt(value.charAt(3)) * 7 +
@@ -162,24 +161,27 @@ export default {
             parseInt(value.charAt(6)) * 4 +
             parseInt(value.charAt(7)) * 3 +
             parseInt(value.charAt(8)) * 2;
-         var r = n - parseInt(n / 11) * 11;
-        if ((r == 0 && r == c) || (r == 1 && c == 1) || (r > 1 && c == 11 - r)) {
+          var r = n - parseInt(n / 11) * 11;
+          if (
+            (r == 0 && r == c) ||
+            (r == 1 && c == 1) ||
+            (r > 1 && c == 11 - r)
+          ) {
             return true;
-        } else {
+          } else {
             return false;
+          }
+        } else {
+          return false;
         }
-    } else {
-        return false;
-    }
       },
     },
   },
-}
-
+};
 </script>
 <style scoped>
 .found {
   border: 2px solid red;
 }
 </style>
-  // :disabled="$v.$invalid"
+// :disabled="$v.$invalid"

@@ -10,7 +10,12 @@ const state = {
     major_id: 0,
     grade_id: 0,
     gender_id: 0,
-    user_id: 0
+    user_id: 0,
+    cities: [],
+    genders: [],
+    majors: [],
+    provinces: []
+
 
 }
 
@@ -36,7 +41,19 @@ const getters = {
     grade_id(state) {
         return state.grade_id
     },
-
+    //--------------------------get data---------------------------- 
+    cities(state) {
+        return state.grade_id
+    },
+    genders(state) {
+        return state.grade_id
+    },
+    majors(state) {
+        return state.grade_id
+    },
+    provinces(state) {
+        return state.grade_id
+    },
 
 };
 const mutations = {
@@ -69,6 +86,20 @@ const mutations = {
     grade_id(state, res) {
         state.grade_id = res
     },
+    //--------------------------get data---------------------------- 
+    cities(state, res) {
+        state.grade_id = res
+    },
+    genders(state, res) {
+        state.grade_id = res
+    },
+    majors(state, res) {
+        state.grade_id = res
+    },
+    provinces(state, res) {
+        state.grade_id = res
+    },
+
 
 
 };
@@ -89,11 +120,25 @@ const actions = {
                     context.commit("major_id", response.body.data.user.major_id)
                     context.commit("grade_id", response.body.data.user.grade_id)
                     context.commit("user_id", response.body.data.user.id)
-
                     router.push('/profile')
                 }
 
 
+
+            }
+        )
+    },
+    getMegarouteData(context) {
+
+        Vue.http.get('/api/v2/megaroute/getUserFormData').then(
+            (response) => {
+                if (response.status == 200) {
+                    console.log(response)
+                    context.commit("cities", response.body.cities)
+                    context.commit("genders", response.body.data.user.genders)
+                    context.commit("majors", response.body.data.user.majors)
+                    context.commit("provinces", response.body.data.provinces)
+                }
             }
         )
     }
