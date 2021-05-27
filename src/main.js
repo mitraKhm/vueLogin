@@ -17,7 +17,7 @@ Vue.config.productionTip = false;
 Vue.use(VueResource);
 Vue.use(Vuelidate);
 Vue.use(VueCookie);
-Vue.use(Vuetify)
+Vue.use(Vuetify);
  
 export  const  vuetify =new Vuetify({
  rtl: true, 

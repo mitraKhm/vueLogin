@@ -11,8 +11,9 @@ const state = {
     grade_id: 0,
     gender_id: 0,
     user_id: 0,
-    cities: [],
+    cities: {},
     genders: [],
+    grades:[],
     majors: [],
     provinces: []
 
@@ -43,16 +44,19 @@ const getters = {
     },
     //--------------------------get data---------------------------- 
     cities(state) {
-        return state.grade_id
+        return state.cities
     },
     genders(state) {
-        return state.grade_id
+        return state.genders
+    },
+    grades(state) {
+        return state.grades
     },
     majors(state) {
-        return state.grade_id
+        return state.majors
     },
     provinces(state) {
-        return state.grade_id
+        return state.provinces
     },
 
 };
@@ -88,20 +92,20 @@ const mutations = {
     },
     //--------------------------get data---------------------------- 
     cities(state, res) {
-        state.grade_id = res
+        state.cities = res
     },
     genders(state, res) {
-        state.grade_id = res
+        state.genders = res
+    },
+    grades(state, res) {
+        state.grades = res
     },
     majors(state, res) {
-        state.grade_id = res
+        state.majors = res
     },
     provinces(state, res) {
-        state.grade_id = res
+        state.provinces = res
     },
-
-
-
 };
 const actions = {
 
@@ -134,15 +138,15 @@ const actions = {
             (response) => {
                 if (response.status == 200) {
                     console.log(response)
-                    context.commit("cities", response.body.cities)
-                    context.commit("genders", response.body.data.user.genders)
-                    context.commit("majors", response.body.data.user.majors)
+                    context.commit("cities", response.body.data.cities)
+                    context.commit("genders", response.body.data.genders)
+                    context.commit("majors", response.body.data.majors)
+                    context.commit("grades", response.body.data.grades)
                     context.commit("provinces", response.body.data.provinces)
                 }
             }
         )
     }
-
 };
 export default {
     state,
