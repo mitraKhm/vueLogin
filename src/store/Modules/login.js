@@ -10,7 +10,7 @@ const state = {
     major_id: 0,
     grade_id: 0,
     gender_id: 0,
-    user_id: 0,
+    user_id:0,
     cities: {},
     genders: [],
     grades:[],
@@ -146,6 +146,16 @@ const actions = {
                 }
             }
         )
+    },
+    sendEditData(context, data){
+        console.log('userId:', state.user_id)
+        Vue.http.put('/api/v2/user/'+ state.user_id , data).then(
+            
+            (response => {
+                console.log(response)
+            })
+        )
+
     }
 };
 export default {

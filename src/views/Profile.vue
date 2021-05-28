@@ -8,8 +8,8 @@
               <v-window v-model="step">
                 <v-window-item :value="1">
                   <v-row class="fill-height">
-                    <v-col cols="12" md="4" class="teal accent-3">
-                      <v-card-text class="white--text mt-12">
+                    <v-col cols="12" md="4" class="teal blue-grey white--text">
+                      <v-card-text class=" white--text mt-12">
                         <h1 class="text-center display-1">اطلاعات</h1>
                         <h5 class="text-center">
                           برای ویرایش اطلاعات بر روی دکمه کلیک کنید (ویرایش)
@@ -27,18 +27,18 @@
                           <h1 color="blue darken-4" class=" ml-2">نام :</h1>
                           <h2
                             v-if="first_name !== ''"
-                            class="pa-md-8 mx-lg-auto"
+                            class="pa-md-8 mx-lg-auto ml-12"
                           >
                             {{ first_name }}
                           </h2>
-                          <h2 v-else>هنوز نام خود را وارد نکرده اید</h2>
+                          <h2 v-else  class=" ml-12">هنوز نام خود را وارد نکرده اید</h2>
                         </div>
                         <div class="d-flex flex-row mb-6">
-                          <h1>نام خانوادگی:</h1>
+                          <h1  >نام خانوادگی:</h1>
                           <h2 color="blue" v-if="last_name !== ''">
                             {{ last_name }}
                           </h2>
-                          <h2 v-else>هنوز نام خانوادگی وارد نکرده اید</h2>
+                          <h2 v-else  class=" ml-12">هنوز نام خانوادگی وارد نکرده اید</h2>
                         </div>
                         <div class="d-flex flex-row mb-6">
                           <h1>آدرس:</h1>
@@ -51,10 +51,10 @@
                       <div class="text-center mt-n5">
                      
                         <router-link tag="button" to="/edit" >
-   <v-btn >
-                          
+                         <v-btn color="success" large dark >
+                              ویرایش
                         </v-btn>
-                          ویرایش
+                      
                         </router-link>
                       </div>
                     </v-col>

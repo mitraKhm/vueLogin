@@ -74,6 +74,7 @@
                           class="ma-2"
                           @click.prevent="sendData()"
                           rounded
+                          large
                           color="success"
                           >ورود</v-btn
                         >
