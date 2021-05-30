@@ -30,6 +30,12 @@ export const router = new VueRouter({
   routes : Routes ,
 
 });
+Vue.http.interceptors.push((request, next) => {
+
+  request.headers.set('Authorization', 'Bearer ' + Vue.cookie.get('AthToken'));
+
+  next();
+});
 
 
 new Vue({

@@ -27,14 +27,14 @@
                           <h1 color="blue darken-4" class=" ml-2">نام :</h1>
                           <h2
                             v-if="first_name !== ''"
-                            class="pa-md-8 mx-lg-auto ml-12"
+                            class=" ml-12"
                           >
                             {{ first_name }}
                           </h2>
                           <h2 v-else  class=" ml-12">هنوز نام خود را وارد نکرده اید</h2>
                         </div>
-                        <div class="d-flex flex-row mb-6">
-                          <h1  >نام خانوادگی:</h1>
+                        <div class="d-flex flex-row mb-6 ml-12">
+                          <h1  class="ml-2">نام خانوادگی:</h1>
                           <h2 color="blue" v-if="last_name !== ''">
                             {{ last_name }}
                           </h2>

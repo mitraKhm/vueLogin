@@ -4,8 +4,6 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
 @import url(http://fonts.googleapis.com/css?family=Abel);
 
-
-
 @font-face {
 
 	font-family: 'BYekan';
@@ -20,3 +18,4 @@
 *{
     font-family: 'BYekan', sans-serif;
 }
+

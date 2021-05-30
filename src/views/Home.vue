@@ -33,14 +33,6 @@
                             v-if="!$v.phone.required && $v.phone.$dirty"
                             >لطفا وارد کنید
                           </v-alert>
-                          <!-- <v-alert 
-                          dense
-                           outlined 
-                           type="error"
-                           v-if="!$v.phone.phone"
-                            >شماره وارد شده صحی نمی باشد
-                          </v-alert> -->
-
                           <v-text-field
                             prepend-icon="mdi-lock"
                             outlined
@@ -57,12 +49,13 @@
                             dense
                             outlined
                             type="error"
-                            v-if="!$v.password.isValid && $v.password.$dirty"
-                            >کد ملی وارد شده صحیح نمیباشد
+
+                            v-if="hasError"
+                            >{{textError}}
                           </v-alert>
                           <v-alert
                             dense
-                            outlined
+                            dark
                             type="error"
                             v-if="!$v.password.required && $v.password.$dirty"
                             >لطفا کلمه عبور را وارد نمایید
@@ -101,8 +94,10 @@ import {
 export default {
   data() {
     return {
-      phone: "09388131193",
-      password: "4900443050",
+      phone: "",
+      password: "",
+      textError:'',
+      hasError:false
     };
   },
   computed: {
@@ -149,6 +144,7 @@ export default {
             value == "8888888888" ||
             value == "9999999999"
           ) {
+            
             return false;
           }
           var c = parseInt(value.charAt(9));
@@ -186,3 +182,4 @@ export default {
 }
 </style>
 // :disabled="$v.$invalid"
+//!$v.password.isValid && $v.password.$dirty"

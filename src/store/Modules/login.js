@@ -115,7 +115,6 @@ const actions = {
             (response) => {
                 if (response.status == 200) {
                     console.log(response)
-
                     context.commit("SetAthCookie", response.body.data)
                     context.commit("first_name", response.body.data.user.first_name)
                     context.commit("last_name", response.body.data.user.last_name)
